@@ -26,7 +26,12 @@
     "express": "^4.15.3",
     "moment": "^2.18.1",
     "nodemon": "^1.11.0",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-js-minify": "0.0.3",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-watch": "^4.3.11"
   },
   "author": "João Tristão",
   "license": "ISC",
