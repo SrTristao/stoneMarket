@@ -1,3 +1,4 @@
+
 angular.module('market')
     .controller('marketController', marketController);
 
@@ -5,4 +6,5 @@ angular.module('market')
 
     function marketController() {
         var vm = this;
+                
     }

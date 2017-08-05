@@ -6,33 +6,45 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     minify = require('gulp-js-minify'),    
     sass = require('gulp-sass'),
+    browserSync = require('browser-sync').create(),
 
-    filesJS = [        
-        'src/*.js',                             
+    filesJS = [
+        'src/app/market.js',
+        'src/app/market.controller.js',
+        'src/app/market.config.js',        
+        'src/modules/**/*.js'
     ],
 
     filesCSS = [
-        'src/*.scss'
+        'src/modules/**/*.scss'
     ];
 
 gulp.task('dev', [
     'devJS',
     'devCSS',
     'watch'
-]);
+], bSync => {
+    browserSync.init({
+        server: './src'
+    });
+
+    gulp.watch("src/*.html").on('change', browserSync.reload);
+});
 
 gulp.task('devJS', function () {
     return gulp.src(filesJS)
         .pipe(concat('main.min.js'))
         // .pipe(uglify({mangle: false}))
-        .pipe(gulp.dest('./App/'));
+        .pipe(gulp.dest('./src/assets/js/'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('devCSS', function () {
     return gulp.src(filesCSS)
         .pipe(concat('main.min.css'))
         .pipe(sass())
-        .pipe(gulp.dest('./App/'));
+        .pipe(gulp.dest('./src/assets/css/'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function () {

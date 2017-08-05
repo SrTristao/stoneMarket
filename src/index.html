@@ -1,8 +1,15 @@
 <html>
     <head>        
         <link href="./assets/css/layout.css" rel="stylesheet" />
-        <script src="../node_modules/angular/angular.min.js"></script>
+        <link href="./assets/css/main.min.css" rel="stylesheet" />
+
+        <script src="./lib/angular/angular.min.js"></script>
+        <script src="./lib/angular-route/angular-route.min.js"></script>
+        <script src="./lib/angular-ui-router/angular-ui-router.min.js"></script>
+        <script src="./lib/ngDialog/ngDialog.min.js"></script>
+        <script src="./assets/js/main.min.js"></script>
     </head>
-    <body ng-app="market" ng-controller="marketController as vm">        
+    <body ng-app="market" ng-cloak ng-controller="marketController as vm">             
+        <div ui-view=""></div>  
     </body>
 </html>
