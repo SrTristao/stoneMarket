@@ -1,4 +1,4 @@
-import { router as API } from './api';
+import { router as API } from './routes/api';
 import * as config from './config';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
