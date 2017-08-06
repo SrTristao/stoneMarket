@@ -1,0 +1,17 @@
+<nav class="header">
+    <div class="container">  
+        <div class="row">
+            <div class="logo">
+                <a href="#" id="logo" class="text-center"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li ng-class="{'check-button': vm.data.checkButton == 'inicio'}" ng-click="vm.goInicio()">Inicio</li>
+                    <li ng-class="{'check-button': vm.data.checkButton == 'sobre'}" ng-click="vm.goSobre()">Sobre</li>                    
+                    <li ng-class="{'check-button': vm.data.checkButton == 'search'}" ng-click="vm.lupa()"><i class="glyphicon glyphicon-search"></i></li>
+                    <li ng-class="{'check-button': vm.data.checkButton == 'carrinho'}" ng-click="vm.goCarrinho()"><i class="glyphicon glyphicon-shopping-cart"></i></li>
+                </ul>
+            </div>
+        </div>         
+    </div>
+</nav>

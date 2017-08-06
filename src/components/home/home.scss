@@ -1,0 +1,55 @@
+.home {
+    margin-top: 100px;
+    .card {
+        width: 281px;
+        float: left;
+        border: 1px solid #eee;
+        margin-right: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        &:hover {
+                -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,.3);
+                -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,.3);
+                box-shadow: 0 0 15px 0 rgba(0,0,0,.3);
+                -webkit-transition: all 120ms ease-in;
+                -moz-transition: all 120ms ease-in;
+                -o-transition: all 120ms ease-in;
+                transition: all 120ms ease-in;       
+        }        
+        .titulo {
+            padding: 0 15%;
+            margin: 20px 0;
+            text-align: center;
+            color: #2196f3;
+            display: -webkit-box;
+            font-size: 13px;
+            height: 30px;
+            line-height: 15px;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;            
+        }
+        .produto {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;            
+        }
+        .card-footer {
+            width: 100%;
+            border-top: 1px solid #eee;
+            padding-left: 10px;
+            .msg, .tipo-pagamento {
+                color: #999;
+                font-size: 11px;
+                font-weight: bold;
+            } 
+            .preco, .moeda {                       
+                color: #13afeb;
+            }
+            .preco {
+                font-size: 19px;
+            }
+        }
+    }
+}

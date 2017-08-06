@@ -13,11 +13,31 @@
         $stateProvider
             .state('/', {
                 url: '/',
-                templateUrl: '../modules/home/home.html'                
+                views: {
+                    'header': {
+                        template: '<mkt-header></mkt-header>'
+                    },
+                    'body': {
+                        template: '<home></home>'
+                    },                    
+                    'footer': {
+                        template: '<mkt-footer></mkt-footer>'
+                    }
+                }
             })
 
             .state('carrinho', {
                 url: '/carrinho',
-                templateUrl: '../modules/carrinho/carrinho.html'                
+                views: {
+                'header': {
+                        template: '<mkt-header></mkt-header>'
+                    },
+                    'body': {
+                        template: '<carrinho></carrinho>'
+                    },                    
+                    'footer': {
+                        template: '<mkt-footer></mkt-footer>'
+                    }  
+                }              
             });            
     }

@@ -17,7 +17,7 @@ export class Livros {
 
     static getLivros() : Livros[] {
         return [
-                new Livros(1,'The Pragmatic Programmer: From Journeyman to Master', 'The Pragmatic Programmer: From Journeyman to Master', 40.00, 12),
+                new Livros(1,'The Pragmatic Programmer: From Journeyman to Master', 'Andrew Hunt & Dave Thomas', 40.00, 12),
                 new Livros(2, 'The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks', 80.00, 1),
                 new Livros(3, 'Expressões Regulares - Uma Abordagem Divertida', 'Aurelio Marinho Jargas', 20.00, 13),
                 new Livros(4, 'Domain Driven Design: Tackling Complexity in the Heart of Software', 'Eric Evans', 120.00, 42),

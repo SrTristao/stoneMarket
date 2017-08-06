@@ -12,11 +12,12 @@ var gulp = require('gulp'),
         'src/app/market.js',
         'src/app/market.controller.js',
         'src/app/market.config.js',        
-        'src/modules/**/*.js'
+        'src/components/**/*.js',
+        'src/utils/**/*.js'
     ],
 
     filesCSS = [
-        'src/modules/**/*.scss'
+        'src/components/**/*.scss'
     ];
 
 gulp.task('dev', [

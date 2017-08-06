@@ -1,0 +1,111 @@
+.home {
+  margin-top: 100px; }
+  .home .card {
+    width: 281px;
+    float: left;
+    border: 1px solid #eee;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer; }
+    .home .card:hover {
+      -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+      -webkit-transition: all 120ms ease-in;
+      -moz-transition: all 120ms ease-in;
+      -o-transition: all 120ms ease-in;
+      transition: all 120ms ease-in; }
+    .home .card .titulo {
+      padding: 0 15%;
+      margin: 20px 0;
+      text-align: center;
+      color: #2196f3;
+      display: -webkit-box;
+      font-size: 13px;
+      height: 30px;
+      line-height: 15px;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .home .card .produto {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto; }
+    .home .card .card-footer {
+      width: 100%;
+      border-top: 1px solid #eee;
+      padding-left: 10px; }
+      .home .card .card-footer .msg, .home .card .card-footer .tipo-pagamento {
+        color: #999;
+        font-size: 11px;
+        font-weight: bold; }
+      .home .card .card-footer .preco, .home .card .card-footer .moeda {
+        color: #13afeb; }
+      .home .card .card-footer .preco {
+        font-size: 19px; }
+
+.footer {
+  width: 100%;
+  height: 300px;
+  background: #2196f3;
+  border-top: 1px solid #b1b1b1;
+  padding: 5px 0;
+  margin-top: 35px;
+  z-index: 1; }
+
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  min-height: 80px;
+  max-height: 80px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  -khtml-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); }
+  .header .logo {
+    float: left;
+    width: 25%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .header .logo #logo {
+      width: 145px;
+      background: url("../../assets/img/mkt-book.png") no-repeat;
+      min-height: 54px;
+      position: absolute; }
+  .header .menu {
+    width: 75%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .header .menu ul {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin: 0; }
+      .header .menu ul li {
+        float: left;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 80px;
+        text-align: center;
+        cursor: pointer; }
+        .header .menu ul li:hover {
+          background-color: #2196f3;
+          color: white; }
+  .header .input-search {
+    display: none; }
+  .header .check-button {
+    background-color: #2196f3;
+    color: white; }

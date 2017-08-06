@@ -3,7 +3,12 @@ import * as serviceLivros from '../service/api';
 import { Livros } from '../model/Livros';
 
 export async function listaLivros(req: Request, res: Response, next: NextFunction) : Promise<void> {
-    
+    try {
+        const result = await serviceLivros.listaLivros();        
+        res.status(200).send(result);
+    } catch (err) {
+        next(err);
+    }
 }
 
 export async function findById(req: Request, res: Response, next: NextFunction) : Promise<void> {

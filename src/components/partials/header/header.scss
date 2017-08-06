@@ -1,0 +1,68 @@
+.header {
+    @mixin flex-global() {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    display: flex;    
+    position:fixed;
+	top: 0;
+	z-index: 99;
+    min-height: 80px;
+    max-height: 80px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    -khtml-box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    -ms-box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    -o-box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        
+    .logo {
+        float: left;
+        width: 25%;
+        height: 80px; 
+        @include flex-global();
+                          
+        #logo {
+            width: 145px;
+            background: url('../../assets/img/mkt-book.png') no-repeat;                                    
+            min-height: 54px;
+            position: absolute;        
+        }
+    } 
+    .menu {        
+        width: 75%;  
+        height: 80px; 
+        @include flex-global();                 
+        ul {      
+            height: 100%;    
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;  
+            li {                
+                float: left;
+                height: 100%;
+                @include flex-global();
+                width:80px;
+                text-align: center;
+                cursor: pointer;                
+                &:hover {
+                    background-color: #2196f3;
+                    color: white;
+                }                
+            }
+        }        
+    }    
+    
+    .input-search {        
+        display: none;        
+    }
+    .check-button {
+        background-color: #2196f3;
+        color: white;
+    }
+    
+    
+}

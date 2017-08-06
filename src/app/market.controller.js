@@ -2,9 +2,11 @@
 angular.module('market')
     .controller('marketController', marketController);
 
-    marketController.$inject = [];
+    marketController.$inject = ['DataFactory'];
 
-    function marketController() {
-        var vm = this;
-                
+    function marketController(DataFactory) {
+        let vm = this;
+        vm.data = DataFactory;
+        
+        vm.data.checkButton = 'inicio';
     }

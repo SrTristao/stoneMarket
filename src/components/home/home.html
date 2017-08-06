@@ -1,0 +1,22 @@
+<div class="home">
+    <div  ng-if="vm.carregando">        
+        <div class="col-xs-2"></div>
+        <img class="col-xs-8" src="../../assets/gif/loading.gif"/>
+        <div class="col-xs-2"></div>
+    </div>    
+    <div ng-repeat="livro in vm.livros">
+        <div class="card">
+            <span class="titulo">{{livro.titulo}}</span>
+            <div class="produto">
+                {{livro.autor}}
+            </div>
+            <div class="card-footer">
+                <span class="msg"> Por apenas </span>
+                <br/>
+                <span class="moeda">R$</span> <span class="preco">{{livro.preco}}</span>
+                <br/>
+                <span class="tipo-pagamento">à Vista</span> 
+            </div>
+        </div>            
+    </div>
+</div>
