@@ -43,7 +43,9 @@ O sistema foi separado por 2 pastas.
 	A pasta assets é onde fica as imagens, icones, js e css.
 
 ### components
-	A pasta components é onde fica as telas, cada tela é separada por pasta onde contém seu, <br/> html, controller, scss e service se necessário.
+	A pasta components é onde fica as telas, cada tela é separada por pasta onde contém seu, 
+
+html, controller, scss e service se necessário.
 
 ### lib
 	A pasta lib fica as bibliotecas necessárias para que o sistema funcione.
