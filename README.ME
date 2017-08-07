@@ -14,7 +14,7 @@ server/config.t
 O gulp foi configurado com browserify, então é viavel sempre executar com gulp dev.
  > - gulp dev
 
-###<i class="icon-folder-open"></i> Estrutura 
+###  Estrutura 
 O sistema foi separado por 2 pastas.
 
 ### Server
