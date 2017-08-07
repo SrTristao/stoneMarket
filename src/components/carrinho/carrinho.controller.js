@@ -94,12 +94,15 @@
             }
 
             vm.aplicarCupom = () => {
+
                 carrinhoService.getCupom(vm.cupom).then(data => {
                     if (data) {
                         vm.itensDesconto = 0;
                         vm.desconto = 0;
+                        //Percorre todos os autores com desconto no cupom
                         data.autores.forEach(autor => {
-                            vm.desconto = vm.data.carrinho.reduce((tot, livro) => {
+                            //Percorre todos os livros e aplica o desconto.
+                            vm.desconto += vm.data.carrinho.reduce((tot, livro) => {
                                 if (livro.autor === autor) {
                                     vm.itensDesconto++;
                                     return tot + ((livro.preco * livro.qtde)*data.desconto)/100;
@@ -120,6 +123,19 @@
                         document.getElementById('btn-aplicar-cupom').blur();
                         document.getElementById('input-aplicar-cupom').blur(); 
                     }
+                }).catch(err => {
+                    ngDialog.open({
+                        template: '<div> Ocorreu um erro ao aplicar o cupom. </div>',
+                        plain: true,
+                        className: 'ngdialog-theme-default',
+                        closeByDocument: true,
+                        closeByEscape: true,
+                        showClose: false
+                    }); 
+                    //Remover o focus do botão, pois ao aparecer o ngDialog
+                    //O enter continua funcionando e isso pode causar muitos bugs.
+                    document.getElementById('btn-aplicar-cupom').blur();
+                    document.getElementById('input-aplicar-cupom').blur();
                 });                
                 vm.cupom = '';
             }
