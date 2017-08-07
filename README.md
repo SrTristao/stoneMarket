@@ -1,20 +1,20 @@
 Market Book - Sistema de vendas    
 
 ### Server
-    Contém um servidorzinho em nodeJS, na pasta server, com a seguinte estrutura.
-    > middlewares
+    Contém um servidorzinho em nodeJS, com a seguinte estrutura.
+    > - middlewares
         cors
-    > model
+    > - model
         Cupons
         Livros
-    > routes
+    > - routes
         action (controller)
         api (route)
-    > service
+    > - service
         api
     app
     config
-    
+
 
 
 ### AngularJs
