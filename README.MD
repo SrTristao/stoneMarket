@@ -36,17 +36,17 @@ config.ts
    > - utils
   index.html
 
-### **app**
+### app
 	A pasta app é onde fica os arquivos de configuração.
 
-###**assets**
+###assets
 	A pasta assets é onde fica as imagens, icones, js e css.
 
-###**components**
+###components
 	A pasta components é onde fica as telas, cada tela é separada por pasta onde contém seu html, controller, scss e service se necessário.
 
-###**lib**
+###lib
 	A pasta lib fica as bibliotecas necessárias para que o sistema funcione.
 
-###**utils**
+###utils
 	A pasta utils contém constantes, services ou qualquer outro arquivo que possa ser reutilizado em todo o sistema.
