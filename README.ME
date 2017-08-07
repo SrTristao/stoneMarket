@@ -7,12 +7,12 @@ Para executar o projeto, precisamos instalar todas as dependências.
 
 ### Executando server
  > - npm run start
-O servidor irá ficar rondando na porta 3131, caso queira trocar mude no arquivo
+> O servidor irá ficar rondando na porta 3131, caso queira trocar mude no arquivo
 server/config.ts
 
 ### Executando front
  > - gulp dev
- O gulp foi configurado com browserify, então é viavel sempre executar com gulp dev.
+ > O gulp foi configurado com browserify, então é viavel sempre executar com gulp dev.
 
 ###<i class="icon-folder-open"></i> Estrutura 
 O sistema foi separado por 2 pastas.
@@ -21,15 +21,14 @@ O sistema foi separado por 2 pastas.
     Contém um servidorzinho em nodeJS, com a seguinte estrutura.
     
 > - middlewares
-    > - model
-    > - routes
-    > - service
-    app.ts
-    config.ts    
+> - model
+> - routes
+> - service
+app.ts
+config.ts    
 
 ### SRC
-    Contém o front-end, com a seguinte estrutura.
-        
+    Contém o front-end, com a seguinte estrutura.        
    > - app
    > - assets
    > - components
