@@ -2,8 +2,7 @@
 
 var gulp = require('gulp'),
     watch = require('gulp-watch'),    
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),    
     minify = require('gulp-js-minify'),    
     sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
@@ -34,8 +33,7 @@ gulp.task('dev', [
 
 gulp.task('devJS', function () {
     return gulp.src(filesJS)
-        .pipe(concat('main.min.js'))
-        // .pipe(uglify({mangle: false}))
+        .pipe(concat('main.min.js'))        
         .pipe(gulp.dest('./src/assets/js/'))
         .pipe(browserSync.stream());
 });
