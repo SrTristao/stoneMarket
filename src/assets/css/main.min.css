@@ -1,5 +1,6 @@
 .carrinho-container {
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
   .carrinho-container table {
     margin-top: 100px;
     margin-bottom: 0; }
@@ -107,6 +108,26 @@
     .carrinho-container .finalizar-compra button {
       height: 64px;
       width: 145px; }
+  .carrinho-container .cor-desconto {
+    color: #5cb85c; }
+
+@media screen and (max-width: 571px) {
+  .carrinho-container th#quantidade {
+    width: 35%; }
+  .carrinho-container th#produto {
+    width: 38%; } }
+
+@media screen and (min-width: 572px) and (max-width: 992px) {
+  .carrinho-container th#quantidade {
+    width: 25%; }
+  .carrinho-container th#produto {
+    width: 48%; } }
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .carrinho-container th#quantidade {
+    width: 18%; }
+  .carrinho-container th#produto {
+    width: 55%; } }
 
 .home {
   margin-top: 100px;
@@ -127,6 +148,7 @@
     .home .pesquisa-invalida .msg-pesquisa-invalida {
       font-size: 50px; }
   .home .card {
+    width: 100%;
     float: left;
     border: 1px solid #eee;
     margin-right: 10px;
@@ -176,6 +198,16 @@
         .home .card .card-footer .btn-carrinho:focus {
           outline: 0; }
 
+.error {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px; }
+  .error .titulo-error {
+    font-size: 70px;
+    font-weight: bold; }
+  .error .msg-error {
+    font-size: 50px; }
+
 .footer {
   width: 100%;
   height: 100px;
@@ -186,12 +218,7 @@
   background: #2196f3;
   border-top: 1px solid #b1b1b1;
   padding: 5px 0;
-  margin-top: 35px;
-  z-index: 1; }
-  .footer .logo {
-    width: 145px;
-    background: url("../../assets/img/mkt-book-branco.png") no-repeat;
-    min-height: 54px; }
+  margin-top: 35px; }
 
 .header {
   display: flex;

@@ -1,4 +1,7 @@
-﻿
+﻿(function () {
+
+    'use strict';
+
     angular
         .module('market')
         .factory('DataFactory', DataFactory);
@@ -12,3 +15,5 @@
         return data;
 
     }
+
+})();

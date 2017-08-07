@@ -1,4 +1,4 @@
-<div class="home pagination-centered">      
+<div class="home">      
     <div  ng-if="vm.carregando">        
         <div class="col-xs-2"></div>
         <img class="col-xs-8" src="../../assets/gif/loading.gif"/>
@@ -9,10 +9,10 @@
         <span class="titulo-pesquisa-invalida">Ops!</span>
         <span class="msg-pesquisa-invalida"> Nenhum livro encontrado. </span>
     </div>
-    <div ng-repeat="livro in vm.data.livros | filter:vm.data.pesquisarLivro">        
-        <div class="col-xs-6 col-md-3 card">
-            <span class="titulo" ng-click="vm.goDetalhesProduto(livro)">{{livro.titulo}}</span>
-            <div class="produto" ng-click="vm.goDetalhesProduto(livro)">
+    <div class="col-xs-6 col-md-4 col-lg-3" ng-repeat="livro in vm.data.livros | filter:vm.data.pesquisarLivro">        
+        <div class="card">
+            <span class="titulo">{{livro.titulo}}</span>
+            <div class="produto">
                 {{livro.autor}}
             </div>
             <div class="col-xs-12 card-footer">
@@ -24,9 +24,9 @@
                     <span class="tipo-pagamento">à Vista</span>
                 </div>
                 <div class="col-xs-6">
-                    <button class="btn btn-success btn-carrinho" ng-click="vm.adicionarCarrinho(livro, $index)"><i class="glyphicon glyphicon-shopping-cart"></i></button>
+                    <button id="btn-adicionar-carrinho-{{$index}}" class="btn btn-success btn-carrinho" ng-click="vm.adicionarCarrinho(livro, $index)"><i class="glyphicon glyphicon-shopping-cart"></i></button>
                 </div>
             </div>
         </div>  
-    </div>          
+    </div>            
 </div>

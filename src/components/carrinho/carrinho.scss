@@ -1,6 +1,6 @@
 .carrinho-container { 
     width: 100%;      
-
+    height: 100%;
     table {
         margin-top: 100px;
         margin-bottom: 0;
@@ -136,7 +136,7 @@
                 border-radius: 4px;
             }
         }
-    }
+    }  
 
     .finalizar-compra {
         width: 100%;         
@@ -146,6 +146,43 @@
         button {
             height: 64px;
             width: 145px;
+        }
+    }
+
+    .cor-desconto {
+        color: #5cb85c;
+    }
+}
+
+@media screen and (max-width: 571px) {
+    .carrinho-container {
+        th#quantidade {
+        width: 35%;
+        }
+        th#produto {
+            width: 38%;
+        }
+    }
+}
+
+@media screen and (min-width: 572px) and (max-width: 992px) {
+    .carrinho-container {
+        th#quantidade {
+        width: 25%;
+        }
+        th#produto {
+            width: 48%;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .carrinho-container {      
+        th#quantidade {
+        width: 18%;
+        }
+        th#produto {
+            width: 55%;
         }
     }
 }

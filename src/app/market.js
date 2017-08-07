@@ -1,3 +1,6 @@
+(function () {
+
+    'use strict';
 
     angular.module('market', [    
         'ngRoute',                                
@@ -5,3 +8,5 @@
         'ngDialog',
         'LocalStorageModule'      
     ]);
+    
+})();

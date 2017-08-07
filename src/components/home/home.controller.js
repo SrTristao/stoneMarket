@@ -1,3 +1,7 @@
+(function () {
+
+    'use strict';
+
     angular.module('market')        
         .controller('homeController', homeController)
         .component('home', {
@@ -6,14 +10,16 @@
             controllerAs: 'vm'
         });
 
-        homeController.$inject = ['HTTPSERVICE', 'CONST', '$q','$timeout', '$state', 'DataFactory', 'ngDialog', 'localStorageService', '$scope'];
+        homeController.$inject = ['homeService', '$q', '$state', 'DataFactory', 'ngDialog', 'localStorageService'];
 
-        function homeController(HTTPSERVICE, CONST, $q, $timeout, $state, DataFactory, ngDialog, localStorageService, $scope) {
+        function homeController(homeService, $q, $state, DataFactory, ngDialog, localStorageService) {
             let vm = this;
             vm.data = DataFactory;            
             vm.carregando = true;            
            
             let init = () => {
+                //Ao recarregar a pagina verifica se existe livros no carrinho
+                //e se existe livros já carregados;
                 if (vm.data.livros.length == 0) {
                     let livros = localStorageService.get('livros');                                                                    
                     let carrinho = localStorageService.get('carrinho');
@@ -24,6 +30,8 @@
                     if (!livros) {
                         getLivros().then(livros => {
                             vm.data.livros = livros;
+                        }).catch(err => {
+                            $state.go('error-page');
                         })
                     } else {
                         vm.data.livros = livros;
@@ -37,6 +45,7 @@
             init();
 
             let salvarLocalStorage = () => {
+                //Salva em cache os dados para não perder.
                 localStorageService.set('livros', vm.data.livros);
                 localStorageService.set('carrinho', vm.data.carrinho);
             }
@@ -44,18 +53,14 @@
             function getLivros() {
                 let defer = $q.defer();
                 
-                HTTPSERVICE.get(CONST.getLivros).then( livros => {
+                homeService.getLivros().then(livros => {
                     defer.resolve(livros);
-                }).catch(err => { 
-                    defer.reject(err) 
-                });
+                }).catch(err => {
+                    defer.reject(err);
+                })
 
                 return defer.promise;
-            }
-
-            vm.goDetalhesProduto = (livro) => {                
-                $state.go('detalhes-produto', {livro:livro});
-            }
+            }          
 
             vm.adicionarCarrinho = (param, index) => {
                 let count = 0;
@@ -95,6 +100,11 @@
                         closeByEscape: true,
                         showClose: false
                     })
+                    //Remover o focus do botão, pois ao aparecer o ngDialog
+                    //O enter continua funcionando e isso pode causar muitos bugs.
+                    document.getElementById('btn-adicionar-carrinho-' + index).blur();
                 }               
             }
         }
+
+})();

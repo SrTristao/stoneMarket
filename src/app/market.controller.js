@@ -1,12 +1,17 @@
+(function () {
 
-angular.module('market')
-    .controller('marketController', marketController);
+    'use strict';
 
-    marketController.$inject = ['DataFactory'];
+    angular.module('market')
+        .controller('marketController', marketController);
 
-    function marketController(DataFactory) {
-        let vm = this;
-        vm.data = DataFactory;
-        vm.data.carrinho = [];   
-        vm.data.livros = [];     
-    }
+        marketController.$inject = ['DataFactory'];
+
+        function marketController(DataFactory) {
+            let vm = this;
+            vm.data = DataFactory;
+            vm.data.carrinho = [];   
+            vm.data.livros = [];     
+        }
+
+})();

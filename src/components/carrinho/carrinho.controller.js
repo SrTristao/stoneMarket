@@ -1,3 +1,7 @@
+(function () {
+
+    'use strict';
+
     angular.module('market')        
         .controller('carrinhoController', carrinhoController)
         .component('carrinho', {
@@ -95,19 +99,14 @@
                         vm.itensDesconto = 0;
                         vm.desconto = 0;
                         data.autores.forEach(autor => {
-                            vm.data.carrinho.forEach(param => {
-                                if (param.autor == autor) {
+                            vm.desconto = vm.data.carrinho.reduce((tot, livro) => {
+                                if (livro.autor === autor) {
                                     vm.itensDesconto++;
-                                    vm.desconto += ((param.preco * param.qtde)*data.desconto)/100;
-                                } else {
-                                    console.log('sei la');
+                                    return tot + ((livro.preco * livro.qtde)*data.desconto)/100;
                                 }
-
-                            })
-                        });
-
-                        vm.subtotal -= vm.desconto;
-                    } else {
+                            },0)
+                        });                        
+                    } else {                        
                         ngDialog.open({
                             template: '<div> Cupom inválido. </div>',
                             plain: true,
@@ -115,7 +114,11 @@
                             closeByDocument: true,
                             closeByEscape: true,
                             showClose: false
-                        });
+                        });  
+                        //Remover o focus do botão, pois ao aparecer o ngDialog
+                        //O enter continua funcionando e isso pode causar muitos bugs.
+                        document.getElementById('btn-aplicar-cupom').blur();
+                        document.getElementById('input-aplicar-cupom').blur(); 
                     }
                 });                
                 vm.cupom = '';
@@ -138,3 +141,5 @@
             }
             
         }
+    
+})();

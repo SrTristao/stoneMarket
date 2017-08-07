@@ -1,3 +1,6 @@
+(function () {
+
+    'use strict';
 
     angular
         .module('market')
@@ -40,20 +43,19 @@
                     }  
                 }              
             })
-            .state('detalhes-produto', {
-                url: '/detalhes-produto',
-                params: {livro: null},
+            .state('error-page', {
+                url: '/error-page',
                 views: {
                 'header': {
                         template: '<mkt-header></mkt-header>'
                     },
                     'body': {
-                        template: '<detalhes-produto></detalhes-produto>'
+                        template: '<mkt-error></mkt-error>'
                     },                    
                     'footer': {
                         template: '<mkt-footer></mkt-footer>'
                     }  
-                }                          
+                }              
             });            
     }
 
@@ -62,3 +64,5 @@
     function ConfigLocalStorage(localStorageServiceProvider) {
         localStorageServiceProvider.setPrefix('market');
     }
+
+})();

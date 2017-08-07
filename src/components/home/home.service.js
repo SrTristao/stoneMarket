@@ -3,17 +3,17 @@
     'use strict';
 
     angular.module('market')        
-        .service('carrinhoService', carrinhoService)        
+        .service('homeService', homeService)        
 
-        carrinhoService.$inject = ['HTTPSERVICE', 'CONST', '$q'];
+        homeService.$inject = ['HTTPSERVICE', 'CONST', '$q'];
 
-        function carrinhoService( HTTPSERVICE, CONST, $q) {
+        function homeService( HTTPSERVICE, CONST, $q) {
             let vm = this;             
             
-            vm.getCupom = (cupom) => {
+            vm.getLivros = () => {
                 let defer = $q.defer();
 
-                HTTPSERVICE.get(CONST.getCupom + `?cupom=${cupom}`).then(data => {                    
+                HTTPSERVICE.get(CONST.getLivros).then(data => {                    
                     defer.resolve(data);
                 }).catch(err => { 
                     defer.reject(err)

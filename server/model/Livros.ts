@@ -21,7 +21,7 @@ export class Livros {
                 new Livros(2, 'The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks', 80.00, 1),
                 new Livros(3, 'Expressões Regulares - Uma Abordagem Divertida', 'Aurelio Marinho Jargas', 20.00, 13),
                 new Livros(4, 'Domain Driven Design: Tackling Complexity in the Heart of Software', 'Eric Evans', 120.00, 42),
-                new Livros(5, 'Patterns of Enterprise Application Architecture', 'Martin FowIer', 32.00, 42),
+                new Livros(5, 'Patterns of Enterprise Application Architecture', 'Martin Fowler', 32.00, 42),
                 new Livros(6, 'Epigrams in Programming', 'Alan Perils', 31.00, 0),
                 new Livros(7, 'Implementing Domain-Driven Design', 'Vaughn Vernon', 31.00, 42),
                 new Livros(8, 'Vaughn Vernon', 'Vaughn Vernon', 22.00, 42),
@@ -36,7 +36,16 @@ export class Livros {
                 new Livros(17, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
                 new Livros(18, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
                 new Livros(19, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
-                new Livros(20, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1)
+                new Livros(20, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                 new Livros(21, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(22, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(23, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(24, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(25, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(26, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(27, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(28, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(29, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1)
             ]
     }
 }

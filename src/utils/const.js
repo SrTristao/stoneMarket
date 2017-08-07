@@ -1,4 +1,8 @@
 
+(function () {
+
+    'use strict';
+
     const staticRoot = 'http://127.0.0.1:3131/api/';
     angular.module('market')
         .constant('CONST', {
@@ -7,3 +11,5 @@
             getCupom: staticRoot.concat('getCupom')
 
         })
+    
+})();
