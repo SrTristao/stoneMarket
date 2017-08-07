@@ -5,7 +5,7 @@
 Para executar o projeto, precisamos instalar todas as dependências.
 > npm install
 
-##### Necessario nodeJS 8.x.x pois contém async/await
+##### Necessário nodeJS 8.x.x pois contém async/await
 
 ### Executando server
 O servidor irá ficar rondando na porta 3131, caso queira trocar mude no arquivo
