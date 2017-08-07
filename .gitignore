@@ -1,4 +1,4 @@
 node_modules
 dist_js
-src/assets/js/main.min.js
-src/assets/css/main.min.css
+src/assets/js/main.min.css
+src/assets/css/main.min.js
