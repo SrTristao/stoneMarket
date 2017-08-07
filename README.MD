@@ -24,8 +24,8 @@ O sistema foi separado por 2 pastas.
 > - model
 > - routes
 > - service
-app.ts
-config.ts    
+> - app.ts
+> - config.ts    
 
 ### SRC
     Contém o front-end, com a seguinte estrutura.        
@@ -34,7 +34,7 @@ config.ts
    > - components
    > - lib
    > - utils
-  index.html
+  > - index.html
 
 ### app
 	A pasta app é onde fica os arquivos de configuração.
