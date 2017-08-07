@@ -21,6 +21,7 @@
                     return tot + livro.qtde;
                 }, 0)
             }
+            
             vm.goCarrinho = () => {            
                 $state.go('carrinho');                         
             }
