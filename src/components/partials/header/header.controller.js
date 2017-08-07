@@ -15,7 +15,12 @@
         function headerController($state, DataFactory, ngDialog) {
             let vm = this;
             vm.data = DataFactory; 
-                                        
+            
+            vm.carrinhoContador = () => {
+                return vm.data.carrinho.reduce((tot,livro) => {
+                    return tot + livro.qtde;
+                }, 0)
+            }
             vm.goCarrinho = () => {            
                 $state.go('carrinho');                         
             }

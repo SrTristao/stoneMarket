@@ -63,12 +63,12 @@
                 return defer.promise;
             }          
 
-            vm.adicionarCarrinho = (param, index) => {
+            vm.adicionarCarrinho = (param) => {
                 let count = 0;
                 //Copia o objeto Livro
                 let livroTemp = angular.copy(param);                
                 //Seta a qtde 1, pois ao clicar no carrinho sempre adicionar 1;
-                livroTemp.qtde = 1;                
+                livroTemp.qtde = 1;                                                
                 
                 //Procura o produto no estoque;
                 let livroEstoque = vm.data.livros.find( livro => { count++; return livro.id == param.id });
@@ -78,8 +78,10 @@
 
                     vm.data.livros.splice(count-1, 1, livroEstoque);
 
+                    count = 0;
                     //Procura no carrinho se já existe um produto igual
                     let livroCarrinho = vm.data.carrinho.find(livro => {
+                        count++;
                         return livro.id == livroTemp.id;
                     });
 
@@ -87,7 +89,7 @@
                     //Se não adiciona o novo objeto ao array.
                     if (livroCarrinho) {
                         livroCarrinho.qtde ++;
-                        vm.data.carrinho.splice(index,1,livroCarrinho);
+                        vm.data.carrinho.splice(count-1,1,livroCarrinho);
                     } else {
                         vm.data.carrinho.push(livroTemp);
                     }
