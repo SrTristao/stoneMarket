@@ -11,22 +11,11 @@ export async function listaLivros(req: Request, res: Response, next: NextFunctio
     }
 }
 
-export async function findById(req: Request, res: Response, next: NextFunction) : Promise<void> {
+export async function getCupom(req: Request, res: Response, next: NextFunction) : Promise<void> {
     try {
-        const result = await serviceLivros.findById(req.query.id);
-        if (result) 
-            res.status(200).send(result);
-        else
-            res.status(200).send('Livro não encontrado.');
+        const result = await serviceLivros.getCupom(req.query.cupom);
+        res.status(200).send(result);
     } catch (err) {
         next(err);
     }
-}
-
-export async function remover() {        
-   
-}
-
-export async function adicionar() {    
-    
 }

@@ -4,12 +4,9 @@ angular.module('market')
     HTTPSERVICE.$inject = ['$http', '$q'];
 
     function HTTPSERVICE($http, $q) {        
-        var vm = this;
-        vm.get = _get;
-        vm.post = _post;
-        vm.delete = _delete;
+        let vm = this;        
 
-        function _get(url) {
+        vm.get = (url) => {
             var defer = $q.defer();
 
             $http.get(url).then(function(data) {
@@ -21,7 +18,7 @@ angular.module('market')
             return defer.promise;
         }
 
-        function _post(url, params) {
+        vm.post = (url, params) => {
             var defer = $q.defer();
             $http.post(url, params).then(function(data) {
                 defer.resolve(data.data);
@@ -31,7 +28,7 @@ angular.module('market')
             return defer.promise;
         }
 
-        function _delete(url) {
+        vm.delete = (url) => {
             var defer = $q.defer();
             $http.delete(url).then(function(data) {
                 defer.resolve(data);

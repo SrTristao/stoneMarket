@@ -1,5 +1,6 @@
 .header {
     @mixin flex-global() {
+        height: 80px;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -21,48 +22,106 @@
         
     .logo {
         float: left;
-        width: 25%;
-        height: 80px; 
+        width: 25%;        
         @include flex-global();
                           
         #logo {
             width: 145px;
             background: url('../../assets/img/mkt-book.png') no-repeat;                                    
-            min-height: 54px;
-            position: absolute;        
+            min-height: 54px;                 
         }
     } 
-    .menu {        
-        width: 75%;  
-        height: 80px; 
-        @include flex-global();                 
-        ul {      
-            height: 100%;    
-            display: flex;
-            justify-content: flex-end;
-            margin: 0;  
-            li {                
-                float: left;
-                height: 100%;
-                @include flex-global();
-                width:80px;
-                text-align: center;
-                cursor: pointer;                
-                &:hover {
-                    background-color: #2196f3;
-                    color: white;
-                }                
-            }
+    
+    .search {     
+        float:left;   
+        width: 50%;
+        @include flex-global();                
+        .input-group-addon {
+            background-color: #2196f3;
+            border: none;
+            color: white;
+            font-size: 22px;
+        }   
+        .form-control {
+            height: 46px;
+            font-size: 16px;
+            box-shadow: none;
+        }      
+    }
+        
+    .conta {
+        float:left;        
+        @include flex-global();  
+        flex-direction: row;
+        align-items: center;   
+           
+        #user {
+            width: 50px;
+            background: url('../../assets/img/user.png') no-repeat;                                    
+            min-height: 54px;                   
+        }                
+        p {
+            font-size: 22px;
+        }
+
+        span { font-size: 15px;}
+    }
+
+    .carrinho {
+        float:left;        
+        @include flex-global(); 
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        #carrinho {
+            width: 50px;
+            background: url('../../assets/img/carrinho.png') no-repeat;                                    
+            min-height: 54px;                   
+        }
+        .quantidade {
+            cursor: pointer;
+            min-height: 1.375em;
+            min-width: 1.375em;
+            line-height: 1.375em;
+            display: block;
+            padding: 1px;            
+            font-size: 1em;
+            top: 32px;
+            position: absolute;                        
+            color: #fff;
+            background: #2196f3;
+            border-radius: 100%;
+            border: 0;
+            text-align: center;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 1199px) {
+    .conta {      
+        width: 15%;  
+        p {
+            display: none;
         }        
-    }    
-    
-    .input-search {        
-        display: none;        
     }
-    .check-button {
-        background-color: #2196f3;
-        color: white;
+    .carrinho {
+        width: 10%;
     }
-    
-    
+}
+
+@media screen and (min-width: 1200px) {
+    .conta {
+        width: 19%;
+        justify-content: flex-end;
+    }
+    .carrinho {
+        width: 6%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home {
+
+    }        
 }

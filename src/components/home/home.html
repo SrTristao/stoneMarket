@@ -1,22 +1,32 @@
-<div class="home">
+<div class="home pagination-centered">      
     <div  ng-if="vm.carregando">        
         <div class="col-xs-2"></div>
         <img class="col-xs-8" src="../../assets/gif/loading.gif"/>
         <div class="col-xs-2"></div>
     </div>    
-    <div ng-repeat="livro in vm.livros">
-        <div class="card">
-            <span class="titulo">{{livro.titulo}}</span>
-            <div class="produto">
+    <div class="pesquisa-invalida" ng-show="(vm.data.livros | filter:vm.data.pesquisarLivro).length == 0 && !vm.carregando"> 
+        <img src="../assets/img/404-error-icon.png"/>
+        <span class="titulo-pesquisa-invalida">Ops!</span>
+        <span class="msg-pesquisa-invalida"> Nenhum livro encontrado. </span>
+    </div>
+    <div ng-repeat="livro in vm.data.livros | filter:vm.data.pesquisarLivro">        
+        <div class="col-xs-6 col-md-3 card">
+            <span class="titulo" ng-click="vm.goDetalhesProduto(livro)">{{livro.titulo}}</span>
+            <div class="produto" ng-click="vm.goDetalhesProduto(livro)">
                 {{livro.autor}}
             </div>
-            <div class="card-footer">
-                <span class="msg"> Por apenas </span>
-                <br/>
-                <span class="moeda">R$</span> <span class="preco">{{livro.preco}}</span>
-                <br/>
-                <span class="tipo-pagamento">à Vista</span> 
+            <div class="col-xs-12 card-footer">
+                <div class="col-xs-6">
+                    <span class="msg"> Por apenas </span>
+                    <br/>
+                    <span class="moeda">R$</span> <span class="preco">{{livro.preco | currency:""}}</span>
+                    <br/>
+                    <span class="tipo-pagamento">à Vista</span>
+                </div>
+                <div class="col-xs-6">
+                    <button class="btn btn-success btn-carrinho" ng-click="vm.adicionarCarrinho(livro, $index)"><i class="glyphicon glyphicon-shopping-cart"></i></button>
+                </div>
             </div>
-        </div>            
-    </div>
+        </div>  
+    </div>          
 </div>

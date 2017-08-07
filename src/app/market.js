@@ -2,5 +2,6 @@
     angular.module('market', [    
         'ngRoute',                                
         'ui.router',
-        'ngDialog'        
+        'ngDialog',
+        'LocalStorageModule'      
     ]);

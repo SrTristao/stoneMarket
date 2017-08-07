@@ -4,16 +4,20 @@
         <link href="./assets/css/main.min.css" rel="stylesheet" />       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>        
+        <link rel="stylesheet" href="./lib/ngDialog/ngDialog.min.css"></script>
+        <link rel="stylesheet" href="./lib/ngDialog/ngDialog-theme-default.min.css"></script>
+        <link rel="stylesheet" href="./lib/ngDialog/ngDialog-theme-plain.min.css"></script>
         <script src="./lib/angular/angular.min.js"></script>        
         <script src="./lib/angular-route/angular-route.min.js"></script>
         <script src="./lib/angular-ui-router/angular-ui-router.min.js"></script>        
-        <script src="./lib/ngDialog/ngDialog.min.js"></script>
+        <script src="./lib/ngDialog/ngDialog.min.js"></script>        
+        <script src="./lib/angular-local-storage/angular-local-storage.js"></script>        
         <script src="./assets/js/main.min.js"></script>
     </head>
     <body ng-app="market" ng-cloak ng-controller="marketController as vm">
         <div ui-view name="header" autoscroll="false"></div>
         <div class="container">
-            <div class="row">            
+            <div class="row row-centered">            
                 <div ui-view name="body" autoscroll="false"></div>  
             </div>
         </div>

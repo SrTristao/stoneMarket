@@ -28,7 +28,15 @@ export class Livros {
                 new Livros(9, 'Scalable Internet Architectures', 'Theo Schlossnagle', 18.00, 4),
                 new Livros(10, 'Refactoring: Improving the Design of Existing Code', 'Martin Fowler', 33.00, 2),
                 new Livros(11, 'Treinamento Em C', 'Victorine Viviane Mizrahi', 42.00, 6),
-                new Livros(12, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1)
+                new Livros(12, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(13, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(14, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(15, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(16, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(17, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(18, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(19, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1),
+                new Livros(20, 'Algoritmos: Teoria e Prática', 'Thomas H. Cormen', 4.60, 1)
             ]
     }
 }

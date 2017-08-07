@@ -6,35 +6,19 @@ angular.module('market')
             controllerAs: 'vm'
         });
 
-    headerController.$inject = ['$state', 'DataFactory'];
+    headerController.$inject = ['$state', 'DataFactory', 'ngDialog'];
 
-    function headerController($state, DataFactory) {
+    function headerController($state, DataFactory, ngDialog) {
         let vm = this;
-        vm.data = DataFactory;
-        //functions
-        vm.goCarrinho = _goCarrinho;
-        vm.goInicio = _goInicio;
-        vm.goSobre = _goSobre;
-        vm.lupa = _lupa;
-
-        //var        
-        console.log(vm.checkButton);
-        function _goCarrinho() {
-            vm.data.checkButton = 'carrinho';
-            $state.go('carrinho');            
+        vm.data = DataFactory; 
+                                       
+        vm.goCarrinho = () => {            
+            $state.go('carrinho');
+            console.log('carrinho');           
         }
 
-        function _goInicio() {
-            vm.data.checkButton = 'inicio';
+        vm.goInicio = () => {            
             $state.go('/');            
-        }
-
-        function _goSobre() {
-            vm.data.checkButton = 'sobre';
-        }
-
-        function _lupa() {
-            vm.data.checkButton = 'search';
-        }
+        }              
 
     }

@@ -1,3 +1,52 @@
-<div>
-    <h1> CARRINHO </h1>
+<div class="carrinho-container">
+    <div class="carrinho-vazio" ng-if="!vm.data.carrinho.length">
+        <p class="carinha"> :( </p>
+        <div> 
+            <p class="titulo"> Ops! Seu carrinho está vazio. </p>
+            <p class="mensagem"> Para inserir produtos no seu carrinho, navegue
+                pelo shopping ou utilize a busca do site. Ao
+                encontrar os produtos desejados, clique no botão
+                "Carrinho". </p>
+        </div>
+    </div>    
+    <table class="table table-bordered" ng-if="vm.data.carrinho.length">
+        <thead>
+            <tr>
+                <th class="remove-border-right" id="produto">Produto(s)</th>
+                <th class="remove-border" id="quantidade">Quantidade</th>
+                <th class="remove-border" id="valorUnitario">Valor Unitário</th>
+                <th class="remove-border-left" id="valorTotal">Valor Total</th>
+            </tr>
+        </thead>        
+        <tbody ng-repeat="livro in vm.data.carrinho track by $index">
+            <tr>
+                <td class="remove-border-right">{{livro.titulo}} {{$index}}</td>
+                <td class="remove-border text-center">                    
+                    <div class="quantidade-item">      
+                        <button class="btn button-left" ng-click="vm.diminuirQtde(livro)"> - </button>
+                        <div class="quantidade-valor">{{livro.qtde}}</div>
+                        <button class="btn button-right" ng-click="vm.aumentarQtde(livro)"> + </button>                    
+                    </div>
+                    <a class="remover-item" ng-click="vm.removerItem($index)"> Remover Item </a>
+                </td>
+                <td class="remove-border text-center">{{livro.preco | currency:"R$ "}}</td>
+                <td class="remove-border-left text-center">{{livro.qtde * livro.preco | currency:"R$ "}}</td>
+            </tr>
+        </tbody>        
+    </table>
+    <div class="rodape-table" ng-if="vm.data.carrinho.length">
+        <span class="subtotal-moeda" style="color: #5cb85c" ng-if="vm.desconto"> Desconto ({{vm.itensDesconto}} {{vm.itensDesconto > 1 ? 'itens' : 'item' }}): R$ </span>
+        <span class="subtotal" ng-if="vm.desconto"> {{vm.desconto | currency:""}} </span>
+        <br/>
+        <span class="subtotal-moeda"> SubTotal ({{vm.data.carrinho.length}} {{vm.data.carrinho.length > 1 ? 'itens' : 'item' }}): R$ </span>
+        <span class="subtotal"> {{vm.subtotal | currency:""}} </span>                
+        <div class="cupom-desconto">                       
+            <input type="text" placeholder="Insira um cupom !" ng-model="vm.cupom"/>
+            <button class="btn btn-success" ng-click="vm.aplicarCupom()"> Aplicar </button>
+        </div>        
+    </div>
+    <div class="finalizar-compra">
+        <button class="btn btn-success" ng-click="vm.finalizarCompra()" ng-if="vm.data.carrinho.length"> Finalizar Compra </button>
+    </div>
+
 </div>

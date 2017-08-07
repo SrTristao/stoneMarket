@@ -3,9 +3,7 @@
     angular.module('market')
         .constant('CONST', {
             
-            getLivros: staticRoot,
-            getById: staticRoot.concat('findById'),
-            adicionarLivro: staticRoot.concat('adicionar'),
-            deleteLivro: staticRoot.concat('remover')
+            getLivros: staticRoot,            
+            getCupom: staticRoot.concat('getCupom')
 
         })

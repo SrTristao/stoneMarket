@@ -7,6 +7,6 @@ angular.module('market')
     function marketController(DataFactory) {
         let vm = this;
         vm.data = DataFactory;
-        
-        vm.data.checkButton = 'inicio';
+        vm.data.carrinho = [];   
+        vm.data.livros = [];     
     }

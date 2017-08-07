@@ -1,17 +1,24 @@
-<nav class="header">
-    <div class="container">  
-        <div class="row">
+<nav class="header"> 
+    <div class="container">
+        <div class="row">  
             <div class="logo">
-                <a href="#" id="logo" class="text-center"></a>
+                <a href="#" id="logo"></a>
             </div>
-            <div class="menu">
-                <ul>
-                    <li ng-class="{'check-button': vm.data.checkButton == 'inicio'}" ng-click="vm.goInicio()">Inicio</li>
-                    <li ng-class="{'check-button': vm.data.checkButton == 'sobre'}" ng-click="vm.goSobre()">Sobre</li>                    
-                    <li ng-class="{'check-button': vm.data.checkButton == 'search'}" ng-click="vm.lupa()"><i class="glyphicon glyphicon-search"></i></li>
-                    <li ng-class="{'check-button': vm.data.checkButton == 'carrinho'}" ng-click="vm.goCarrinho()"><i class="glyphicon glyphicon-shopping-cart"></i></li>
-                </ul>
+            <div class="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="O que você procura?"
+                    ng-model="vm.data.pesquisarLivro" ng-model-options="{ debounce: 500 }">
+                    <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
+                </div>
+            </div>  
+            <div class="conta">
+                <a href="#" id="user"></a>
+                <p> Olá!  <br/> <span> entre ou cadastre-se </span> </p>                                
+            </div> 
+            <div class="carrinho" ng-click="vm.goCarrinho()">
+                <a id="carrinho"></a>
+                <span class="quantidade">{{vm.data.carrinho.length}}</span>
             </div>
-        </div>         
+        </div>
     </div>
 </nav>

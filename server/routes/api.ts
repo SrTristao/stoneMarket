@@ -1,9 +1,7 @@
 import { NextFunction, Request, Response, Router} from 'express';
-import { listaLivros, findById, remover, adicionar } from './action';
+import { listaLivros, getCupom } from './action';
 
 export const router = Router();
 
 router.get('/', listaLivros);
-router.get('/:id', findById);
-router.delete('/:remover', remover);
-router.post('/:adicionar', adicionar);
+router.get('/getCupom', getCupom);

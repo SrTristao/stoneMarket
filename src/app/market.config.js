@@ -2,6 +2,7 @@
     angular
         .module('market')
         .config(ConfigProvider)
+        .config(ConfigLocalStorage)
         .run(function () {    
         });
 
@@ -25,7 +26,6 @@
                     }
                 }
             })
-
             .state('carrinho', {
                 url: '/carrinho',
                 views: {
@@ -39,5 +39,26 @@
                         template: '<mkt-footer></mkt-footer>'
                     }  
                 }              
+            })
+            .state('detalhes-produto', {
+                url: '/detalhes-produto',
+                params: {livro: null},
+                views: {
+                'header': {
+                        template: '<mkt-header></mkt-header>'
+                    },
+                    'body': {
+                        template: '<detalhes-produto></detalhes-produto>'
+                    },                    
+                    'footer': {
+                        template: '<mkt-footer></mkt-footer>'
+                    }  
+                }                          
             });            
+    }
+
+    ConfigLocalStorage.$inject = ['localStorageServiceProvider'];
+
+    function ConfigLocalStorage(localStorageServiceProvider) {
+        localStorageServiceProvider.setPrefix('market');
     }
