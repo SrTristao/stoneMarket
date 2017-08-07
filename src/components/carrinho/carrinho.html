@@ -4,7 +4,7 @@
         <div> 
             <p class="titulo"> Ops! Seu carrinho está vazio. </p>
             <p class="mensagem"> Para inserir produtos no seu carrinho, navegue
-                pelo shopping ou utilize a busca do site. Ao
+                pelo shopping. Ao
                 encontrar os produtos desejados, clique no botão
                 "Carrinho". </p>
         </div>
@@ -45,7 +45,7 @@
             <span class="subtotal-moeda" ng-if="vm.desconto"> Total Geral: R$ </span>
             <span class="subtotal" ng-if="vm.desconto"> {{vm.subtotal - vm.desconto | currency:""}} </span>                       
             <div class="cupom-desconto">                       
-                <input id="input-aplicar-cupom" ng-enter="vm.aplicarCupom()" type="text" placeholder="Insira um cupom !" ng-model="vm.cupom"/>
+                <input id="input-aplicar-cupom" ng-enter="vm.aplicarCupom()" type="text" placeholder="Insira um cupom !" ng-model="vm.cupom.cupom"/>
                 <button id="btn-aplicar-cupom" class="btn btn-success" ng-click="vm.aplicarCupom()"> Aplicar </button>
             </div>        
         </div>

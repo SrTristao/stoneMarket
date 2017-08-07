@@ -5,19 +5,16 @@ let livros: Livros[] =  Livros.getLivros();
 let cupons: Cupons[] = Cupons.getCupons();
 
 //Retorna todos os livros.
-export async function listaLivros() {
-    return livros;
+export async function listaLivros() {        
+    return livros.map(livro => {
+        livro.capa = livro.titulo.replace(/[^0-9a-zA-Z ]/g,'');
+        return livro;
+    });
 }
 
 //Verifica o cupom valido para desconto.
-export async function getCupom(cupom: string) {
-    let cupomValido: Cupons;            
-    
-    for(let cup of cupons) {
-        if (cup.cupom == cupom) {
-            cupomValido = cup;            
-        }        
-    }
-
-    return cupomValido;
+export async function getCupom(param: string) {
+    return cupons.find(cupom => {
+        return cupom.cupom == param;
+    });                
 }

@@ -17,7 +17,7 @@
             </div> 
             <div class="carrinho" ng-click="vm.goCarrinho()">
                 <a id="carrinho"></a>
-                <span class="quantidade">{{vm.data.carrinho.length}}</span>
+                <span class="quantidade">{{vm.data.carrinho.length ? vm.data.carrinho.length : 0}}</span>
             </div>
         </div>
     </div>

@@ -17,31 +17,51 @@
             vm.data = DataFactory;
             vm.subtotal = 0;
 
+            let calculaDesconto = () => {
+                if (vm.cupom) {
+                    vm.itensDesconto = 0; 
+                    vm.desconto = 0; 
+                    //Percorre todos os autores com desconto no cupom
+                    vm.cupom.autores.forEach(autor => {
+                            //Percorre todos os livros e aplica o desconto.
+                            vm.desconto += vm.data.carrinho.reduce((tot, livro) => {
+                                if (livro.autor === autor) {
+                                    vm.itensDesconto++;
+                                    return tot + ((livro.preco * livro.qtde)*vm.cupom.desconto)/100;
+                                } else {
+                                    return tot;
+                                }                                
+                            },0)
+                        });
+                }
+            }
+
             let calculaSubTotal = () => {
                 vm.subtotal = vm.data.carrinho.reduce((tot, livro) => {
                     return tot + (livro.qtde * livro.preco);
                 }, 0);
+
+                calculaDesconto();
             }
 
             let getLocalStorage = () => {
                 if (vm.data.carrinho.length == 0) {
-                    let carrinho = localStorageService.get('carrinho');
-                    if (carrinho) {
-                        vm.data.carrinho = carrinho;
-                    }
+                   let carrinho = localStorageService.get('carrinho');                    
+                   if(carrinho) {
+                       vm.data.carrinho = carrinho;
+                   }
                 }
 
-                if(vm.data.livros.length == 0) {
-                    let livros = localStorageService.get('livros');
-                    if(livros) {
-                        vm.data.livros = livros;
-                    }
+                if (!vm.cupom) {
+                    vm.cupom = localStorageService.get('cupom');                    
                 }
             }
 
             let init = () => {
                 getLocalStorage();
-                calculaSubTotal();                
+                if (vm.data.carrinho) {
+                    calculaSubTotal();
+                }                
             }
 
             init();
@@ -91,25 +111,17 @@
                 vm.data.carrinho.splice(index, 1);
                 calculaSubTotal();
                 salvarLocalStorage();
-            }
+            }            
 
             vm.aplicarCupom = () => {
 
-                carrinhoService.getCupom(vm.cupom).then(data => {
-                    if (data) {
-                        vm.itensDesconto = 0;
-                        vm.desconto = 0;
-                        //Percorre todos os autores com desconto no cupom
-                        data.autores.forEach(autor => {
-                            //Percorre todos os livros e aplica o desconto.
-                            vm.desconto += vm.data.carrinho.reduce((tot, livro) => {
-                                if (livro.autor === autor) {
-                                    vm.itensDesconto++;
-                                    return tot + ((livro.preco * livro.qtde)*data.desconto)/100;
-                                }
-                            },0)
-                        });                        
-                    } else {                        
+                carrinhoService.getCupom(vm.cupom.cupom).then(data => {
+                    if (data) {                                              
+                        vm.cupom = data;
+                        calculaDesconto();
+                        localStorageService.set('cupom', vm.cupom);
+                    } else {      
+                        localStorageService.remove('cupom');                  
                         ngDialog.open({
                             template: '<div> Cupom inválido. </div>',
                             plain: true,
@@ -122,8 +134,10 @@
                         //O enter continua funcionando e isso pode causar muitos bugs.
                         document.getElementById('btn-aplicar-cupom').blur();
                         document.getElementById('input-aplicar-cupom').blur(); 
+                        vm.cupom.cupom = '';
                     }
                 }).catch(err => {
+                    localStorageService.remove('cupom');
                     ngDialog.open({
                         template: '<div> Ocorreu um erro ao aplicar o cupom. </div>',
                         plain: true,
@@ -136,8 +150,8 @@
                     //O enter continua funcionando e isso pode causar muitos bugs.
                     document.getElementById('btn-aplicar-cupom').blur();
                     document.getElementById('input-aplicar-cupom').blur();
-                });                
-                vm.cupom = '';
+                    vm.cupom.cupom = '';
+                });                            
             }
 
             vm.finalizarCompra = () => {
@@ -151,6 +165,7 @@
                 });
                 localStorageService.remove('livros');
                 localStorageService.remove('carrinho');
+                localStorageService.remove('cupom');
                 vm.data.carrinho = [];
                 vm.data.livros = [];
                 $state.go('/');

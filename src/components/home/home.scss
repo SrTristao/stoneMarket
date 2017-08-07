@@ -56,7 +56,12 @@
         .produto {
             width: 180px;
             height: 180px;
-            margin: 0 auto;            
+            margin: 0 auto; 
+            margin-bottom: 20px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
         .card-footer {
             width: 100%;

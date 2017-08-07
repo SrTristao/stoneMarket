@@ -14,10 +14,10 @@
 
         function homeController(homeService, $q, $state, DataFactory, ngDialog, localStorageService) {
             let vm = this;
-            vm.data = DataFactory;            
-            vm.carregando = true;            
+            vm.data = DataFactory;                                    
            
             let init = () => {
+                vm.carregando = true;
                 //Ao recarregar a pagina verifica se existe livros no carrinho
                 //e se existe livros já carregados;
                 if (vm.data.livros.length == 0) {
@@ -30,13 +30,14 @@
                     if (!livros) {
                         getLivros().then(livros => {
                             vm.data.livros = livros;
+                            vm.carregando = false;
                         }).catch(err => {
                             $state.go('error-page');
                         })
                     } else {
                         vm.data.livros = livros;
-                    }
-                    vm.carregando = false;
+                        vm.carregando = false;
+                    }                    
                 } else {                  
                     vm.carregando = false;  
                 }

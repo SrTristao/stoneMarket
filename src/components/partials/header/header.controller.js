@@ -17,8 +17,7 @@
             vm.data = DataFactory; 
                                         
             vm.goCarrinho = () => {            
-                $state.go('carrinho');
-                console.log('carrinho');           
+                $state.go('carrinho');                         
             }
 
             vm.goInicio = () => {            
